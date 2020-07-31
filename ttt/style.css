@@ -1,0 +1,131 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    color: #545454;
+    display:flex;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+}
+
+.container{
+    background-color: #14BDAC;
+    margin: 50px;
+    padding: 50px;
+    border-radius: 25px;
+    /* if container height and width is not given it will determined by its children height and width */
+}
+.title{   
+    text-align: center;
+}
+.title span{
+    color:#F2EBD3;
+}
+
+.status-action{
+    display: flex;
+    margin-top: 25px;
+    font-size: 25px;
+    justify-content:space-around;
+}
+.status span{
+    color: #F2EBD3;
+}
+.reset{
+    cursor: pointer;
+    display: inline-block;
+    padding: 0px 10px;
+    color: purple;
+    overflow: hidden;
+    transition: 0.2s;
+}
+.reset:hover{
+    color: #F2EBD3;
+    background:none;
+    box-shadow: 0 0 10px #F2EBD3 , 0 0 40px #F2EBD3, 0 0 80px #F2EBD3;
+}
+
+.game-grid{
+    margin-top: 25px;
+    /* padding: 20px; */
+    background-color: #0DA192;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-gap:15px;
+    
+}
+
+.game-cell{
+    margin-top: 0px;
+    height: 150px;
+    width: 150px;
+    background-color:#14BDAC;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center;
+    vertical-align:middle; optional*/
+}
+
+/* to add visuals x and o we use pseudo element(before and after) */
+
+/* .game-cell::before{
+    content: 'X';
+} this gives x in all boxes but we want just the box in which we click */
+
+.X::before{
+    content: 'X';
+    font-size: 150px;
+    text-align: center;
+    cursor: default;
+}
+.O::before{
+    content: 'O';
+    color: #F2EBD3;
+    font-size: 150px;
+    cursor: default;
+}
+
+.won::before{
+    color: red;
+    /* background-color: silver;  */
+}
+
+@media only screen and (max-width: 1024px){
+    .game-grid{
+        margin-top: 25px;
+        grid-gap: 10px;
+    }
+    .game-cell{
+        height: 100px;
+        width: 100px;
+    }
+    .X::before{
+        font-size: 100px;
+    }
+    .O::before{
+        font-size: 100px;
+    }
+}
+
+@media only screen and (max-width: 540px){
+    .game-grid{
+        margin: 25px;
+        padding: 25px;
+    }
+    .game-cell{
+        height: 80px;
+        width: 80px;
+    }
+    .X::before{
+        font-size: 80px;
+    }
+    .O::before{
+        font-size: 80px;
+    }
+}
